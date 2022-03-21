@@ -1,0 +1,1 @@
+# kepesitoreGyakorlo2022
