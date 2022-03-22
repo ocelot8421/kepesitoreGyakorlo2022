@@ -1,33 +1,40 @@
 package hu.nive.ujratervezes.kepesitovizsga.army;
 
-public class Army extends MilitaryUnit {
-    @Override
-    public int doDamage() {
-        return 0;
-    }
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override
-    public int sufferDamage(int damage) {
-        return 0;
-    }
+public class Army {
 
-    @Override
-    public int getHitPoints() {
-        return 0;
-    }
+    private List<MilitaryUnit> militaryUnitList = new ArrayList<>();
 
     public int getArmySize() {
-        return 0;
+        return militaryUnitList.size();
     }
 
-    public void addUnit(MilitaryUnit militaryUnit) {
+    public List<MilitaryUnit> addUnit(MilitaryUnit militaryUnit) {
+        militaryUnitList.add(militaryUnit);
+        return militaryUnitList;
     }
 
     public int getArmyDamage() {
-        return 0;
+        int damageInt = 0;
+        for (MilitaryUnit militaryUnit : militaryUnitList) {
+            damageInt += militaryUnit.getDamage();
+        }
+        return damageInt;
     }
 
-    public void damageAll(int i) {
-
+    public void damageAll(int damage) {
+        List<MilitaryUnit> deadMilitary = new ArrayList<>();
+        for (MilitaryUnit militaryUnit : militaryUnitList) {
+            int life = militaryUnit.getLife() - militaryUnit.sufferDamage(damage);
+            if (life < 25) {
+                deadMilitary.add(militaryUnit);
+            } else {
+                militaryUnit.setLife(life);
+            }
+        }
+        militaryUnitList.removeAll(deadMilitary);
+        deadMilitary.clear();
     }
 }

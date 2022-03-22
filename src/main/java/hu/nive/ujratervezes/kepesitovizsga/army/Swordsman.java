@@ -19,12 +19,13 @@ public class Swordsman extends MilitaryUnit {
 
     @Override
     public int sufferDamage(int damage) {
+        int result = 0;
         if (armor) {
-            this.damageGot = damage / 2;
+            result = damage / 2;
         } else {
-            this.damageGot = damage;
+            result = damage;
         }
-        return this.damageGot;
+        return result;
     }
 
     @Override
@@ -38,5 +39,25 @@ public class Swordsman extends MilitaryUnit {
             result = life - damageGot;
         }
         return result;
+    }
+
+    @Override
+    public int getLife() {
+        return life;
+    }
+
+    @Override
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    @Override
+    public int getDamage() {
+        return damageGot;
+    }
+
+    @Override
+    public void setDamage(int damage) {
+        this.damageGot = damage;
     }
 }

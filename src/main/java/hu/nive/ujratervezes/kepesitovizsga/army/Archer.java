@@ -24,4 +24,25 @@ public class Archer extends MilitaryUnit {
         return life - damage;
     }
 
+    @Override
+    public int getLife() {
+        return 0;
+    }
+
+    @Override
+    public void setLife(int life) {
+
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
+    }
+
+    @Override
+    public void setDamage(int demage) {
+
+    }
+
+
 }
