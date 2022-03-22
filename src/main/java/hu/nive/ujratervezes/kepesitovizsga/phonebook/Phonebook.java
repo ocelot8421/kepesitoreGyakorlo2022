@@ -15,7 +15,6 @@ public class Phonebook {
         }
 
         Path pathOutput = Path.of(output);
-        System.out.println(pathOutput);
 
 //        try { //VAGY  try (BufferedWriter bufferedWriter = Files.newBufferedWriter(pathOutput, StandardOpenOption.WRITE,  StandardOpenOption.CREATE)) {
 //            Files.createFile(pathOutput);
